@@ -1,6 +1,6 @@
-/build/
-/dist/
-/debug/
-/nbproject/
-!/nbproject/configurations.xml
-!/nbproject/project.xml
+build/
+dist/
+debug/
+nbproject/
+!nbproject/project.xml
+!nbproject/configurations.xml
