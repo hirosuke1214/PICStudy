@@ -1,6 +1,9 @@
 build/
 dist/
 debug/
-nbproject/
-!nbproject/project.xml
-!nbproject/configurations.xml
+
+!/*/*/*/nbproject/
+/*/*/*/nbproject/private/
+/*/*/*/nbproject/*
+!/*/*/*/nbproject/project.xml
+!/*/*/*/nbproject/configurations.xml
