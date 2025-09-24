@@ -2,7 +2,7 @@
  * File:   main.c
  * Author: hirosuke1214
  *
- * Created on 2021/09/09, 22:19
+ * Created on 2025/09/24, 12:26
  */
 
 // PIC12F683 Configuration Bit Settings
@@ -18,29 +18,33 @@
 #pragma config CPD = OFF        // Data Code Protection bit (Data memory code protection is disabled)
 #pragma config BOREN = ON       // Brown Out Detect (BOR enabled)
 #pragma config IESO = OFF       // Internal External Switchover bit (Internal External Switchover mode is disabled)
-#pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enabled bit (Fail-Safe Clock Monitor is disabled)
+#pragma config FCMEN = ON       // Fail-Safe Clock Monitor Enabled bit (Fail-Safe Clock Monitor is enabled)
 
 // #pragma config statements should precede project file includes.
 // Use project enums instead of #define for ON and OFF.
 
 #include <xc.h>
-#include <stdbool.h>
 
-#define _XTAL_FREQ 1000000
+#define _XTAL_FREQ 8000000 // Xtal frequency for __delta_ms(x).
 
-__bit LedBit = 0;
+void initializeGPIO()
+{
+    GPIO = 0;   // Clear GPIO register.
+    CMCON0 = 0b111;  // GP0-2 use I/O.
+    ANSEL = 0;  // AN0-2 use digital I/O.
+    TRISIO = 0; // GP0-5 use output.
+    OSCCON = 0b01110000;    // Clock Frequency is 8MHz. Clock source configured FOSC register.
+}
 
-void main(void) {
-    OSCCON = 0x40;
-    ANSEL = 0x00;
-    CMCON0 = 0x07;
-    TRISIO = 0x08;
+void main(void)
+{
+    initializeGPIO();
     
-    while(true)
+    while(1)
     {
-        // LedBit = ~LedBit;
-        GP2 = 1;//LedBit;
+        GP2 = !GP2;
         __delay_ms(300);
     }
+    
     return;
 }
