@@ -1,9 +1,12 @@
+# for MPLAB X IDE
 build/
 dist/
 debug/
-
 !/*/*/*/nbproject/
 /*/*/*/nbproject/private/
 /*/*/*/nbproject/*
 !/*/*/*/nbproject/project.xml
 !/*/*/*/nbproject/configurations.xml
+
+# for KiCad
+*-backups/
