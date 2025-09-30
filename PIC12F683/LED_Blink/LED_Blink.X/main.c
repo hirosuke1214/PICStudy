@@ -32,7 +32,7 @@ void initializeGPIO()
     GPIO = 0;   // Clear GPIO register.
     CMCON0 = 0b111;  // GP0-2 use I/O.
     ANSEL = 0;  // AN0-2 use digital I/O.
-    TRISIO = 0; // GP0-5 use output.
+    TRISIO = 0b00001000; // GP0-5 use output. GP3 only input.
     OSCCON = 0b01110000;    // Clock Frequency is 8MHz. Clock source configured FOSC register.
 }
 
