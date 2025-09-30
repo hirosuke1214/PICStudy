@@ -11,7 +11,7 @@ Circuit diagram:
 | C1 | Capacitor | 0.1μ | Bypass Capacitor for noise reduction. |
 | C2 | Capacitor | 220μ | Bypass Capacitor for power  supply stabilization. |
 | R1 | Resistor | 330Ω | Resistor for LED protection. |
-| R2 | Resistor | 10K | Pull-up resistor |
+| R2 | Resistor | 10KΩ | Pull-up resistor |
 | D1 | LED | - | Blink LED. |
 | U1 | PIC | - | PIC12F683 |
 
